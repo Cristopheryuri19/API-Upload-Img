@@ -1,3 +1,19 @@
+# Arquivo de log
+
+log
+*.log
+npm_debug.log
+# dados de tempo execução
+pids
+*.pid
+*.seed
+
+# Diretorio de dependicias
+node_modules/
+
+# Arquivos de build
+dist/
+build/
+
+# Variaveis de ambiente
 .env
-package-lock.json
-node_modules

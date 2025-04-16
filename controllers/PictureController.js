@@ -1,8 +1,5 @@
-// Importa o models Picture para interagir com o banco de dados
+// Importa o models Picture para interagir com o DB
 const Picture = require("../models/Picture");
-
-// Importa o módulo fs para interagir com o sistema de arquivos
-const fs = require("fs");
 
 // Função para criar uma nova imagem no banco de dados
 exports.create = async (req, res) => {
@@ -10,54 +7,73 @@ exports.create = async (req, res) => {
     // Obtém o nome da img do corpo da requisição
     const { name } = req.body;
 
-    // Obtém o arquivo da req.(Usando o Multer para fazer o upload)
+    // Obtém o arquivo da req. (Usado pelo Multer para fazer o Upload)
     const file = req.file;
 
-    // Cria uma nova instãncia com o nome e caminho do arquivo
+    // Cria uma nova instância com nome  e imagem
     const picture = new Picture({
       name,
-      src: file.path,
+      image: file.buffer,
+      contentType: file.mimetype,
     });
 
-    // Salva a imagem no banco de dados
+    // Salva a imagem no DB
     await picture.save();
 
-    // Retorna a resposta com a img. e uma mensagem de sucesso
+    // Retorna a resposta com a img. e uma msg. de sucesso
     res.json({ picture, msg: "Imagem salva com sucesso!" });
-  } catch (error) {
-    // Em cado de erro, retorna uma mensagem de erro 500
+  } catch (err) {
+    // Em caso de erro, retorna uma msg. com erro 500
     res.status(500).json({ message: "Erro ao salvar imagem!" });
   }
 };
 
-// função para encontrar todas as imagens no banco de dados
+// Função para encontrar todas as imagens no banco de dados
 exports.findAll = async (req, res) => {
   try {
     // Busca todas as imagens no banco de dados
     const pictures = await Picture.find();
 
     // Retorna todas as imagens do DB
-    res.json(pictures);
+    res.json({ pictures, msg: "Imagens buscadas com sucesso!" });
   } catch (err) {
     // Em caso de erro, retorna uma resposta de erro com código 500
     res.status(500).json({ message: "Erro ao buscar imagens!" });
   }
 };
 
-exports.remove = async (req, res) => {
+// Função para obter somente uma imagem especifica
+exports.getImage = async (req, res) => {
   try {
+    // Buscando a img. pelo ID fornececido pelo DB
     const picture = await Picture.findById(req.params.id);
 
+    // Se a img. não foi encontrada, retorna uma erro 404
     if (!picture) {
-      return res.status(404).json({ message: "Imagem não encontrada!" });
+      return res.status(404).json({ message: "Imagem não encontrada" });
     }
 
-    fs.unlinkSync(picture.src);
+    // Define o tipo da resposta para o tipo da imagem
+    res.set("Content-Type", picture.contentType);
 
-    await picture.remove();
-
-    res.json({ message: "Imagem removida!" });
+    // Mostra a imagem na resposta
+    res.send(picture.image);
   } catch (error) {
-    res.status(500).json({ message: "Erro ao excluir imagem!" });
+    // Caso ocorra erro, retorna para o usuario
+    res.status(500).json({ message: "Erro ao buscar imagem!" });
+  }
+};
+
+// Função para deletar uma imagem especifica 
+exports.delete = async (req, res) => {
+  try {
+    // Deleta a imagem pelo ID fornecido
+    await Picture.findByIdAndDelete(req.params.id);
+
+    // Retorna uma msg. de sucesso para o usuario
+    res.json({ message: "Imagem deletada com sucesso!" });
+  } catch (error) {
+    // Caso ocorra erro, retorna para o usuario
+    res.status(500).json({ message: "Erro ao deletar imagem!" });
   }
 };
