@@ -46,12 +46,12 @@ API-Upload-Img-main/
 
 3. Execute o servidor:
    ```bash
-   node app.js
+   npm start
    ```
 
 4. Acesse no navegador:
    ```
-   http://localhost:3000
+   http://localhost:4000
    ```
 
 ## 📦 Funcionalidades
@@ -68,7 +68,7 @@ API-Upload-Img-main/
 
 ## 👥 Créditos
 
-Desenvolvido por [Seu Nome ou Equipe].
+Desenvolvido por Cristopher.
 
 ## 📄 Licença
 
