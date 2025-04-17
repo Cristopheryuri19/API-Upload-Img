@@ -44,12 +44,19 @@ API-Upload-Img-main/
    npm install
    ```
 
-3. Execute o servidor:
+3. Crie um arquivo .env
+    ```
+    Crie o arquivo .env na pasta raiz com:
+    DB_USER:
+    DB_PASS:
+    PORT:4000
+
+4. Execute o servidor:
    ```bash
    npm start
    ```
 
-4. Acesse no navegador:
+5. Acesse no navegador:
    ```
    http://localhost:4000
    ```
