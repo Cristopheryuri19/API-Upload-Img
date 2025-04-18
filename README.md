@@ -52,26 +52,27 @@ API-Upload-Img-main/
     PORT:4000
     
 4. Copiar seu link de conexão do cluster do mongodb
-   ```bash
-   Explo: `mongodb+srv://${dbUser}:${dbPassword}@projeto-api.xywkl.mongodb.net/?retryWrites=true&w=majority&appName=Projeto-API`
-   ```
+    ```bash
+    Explo: `mongodb+srv://${dbUser}:${dbPassword}@projeto-api.xywkl.mongodb.net/?retryWrites=true&w=majority&appName=Projeto-API`
+    ```
    
 5. Colar o link na linha 19 do arquivo db.js
+    OBS: colocar o link dentro das crases( ` ` )
  
-6.    Execute o servidor:
-   ```bash
-   npm start
-   ```
+6. Execute o servidor:
+    ```bash
+    npm start
+    ```
 
 6. Acesse no navegador:
-   ```
-   http://localhost:4000
-   ```
+    ```
+    http://localhost:4000
+    ```
 
 ## 📦 Funcionalidades
 
 - Upload de imagens através de formulário HTML
-- Salvamento local dos arquivos
+- Salvamento no banco de dados(mongodb) e na pasta uploads(temporariamente)
 - Visualização das imagens já enviadas
 - API modularizada com uso de controllers, rotas e modelos
 
