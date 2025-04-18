@@ -57,7 +57,7 @@ API-Upload-Img-main/
     ```
    
 5. Colar o link na linha 19 do arquivo db.js
-    OBS: colocar o link dentro das crases( ` ` )
+    OBS: colocar o link dentro das crases( ` )
  
 6. Execute o servidor:
     ```bash
