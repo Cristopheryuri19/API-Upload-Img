@@ -47,16 +47,23 @@ API-Upload-Img-main/
 3. Crie um arquivo .env
     ```
     Crie o arquivo .env na pasta raiz com:
-    DB_USER:
-    DB_PASS:
+    DB_USER:<seu usuário do cluster do mongodb>
+    DB_PASS:<sua senha do cluster do mongodb>
     PORT:4000
-
-4. Execute o servidor:
+    
+4. Copiar seu link de conexão do cluster do mongodb
+   ```bash
+   Explo: `mongodb+srv://${dbUser}:${dbPassword}@projeto-api.xywkl.mongodb.net/?retryWrites=true&w=majority&appName=Projeto-API`
+   ```
+   
+5. Colar o link na linha 19 do arquivo db.js
+ 
+6.    Execute o servidor:
    ```bash
    npm start
    ```
 
-5. Acesse no navegador:
+6. Acesse no navegador:
    ```
    http://localhost:4000
    ```
