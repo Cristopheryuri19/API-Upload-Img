@@ -64,9 +64,9 @@ API-Upload-Img-main/
     npm start
     ```
 
-6. Acesse no navegador:
+6. Baixe a extensão live server no vscode
     ```
-    http://localhost:4000
+    execute a extensão no vs code em "go live"
     ```
 
 ## 📦 Funcionalidades
