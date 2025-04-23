@@ -17,7 +17,9 @@ router.post("/", upload.single("file"), PictureController.create);
 router.get("/", PictureController.findAll);
 
 // Rota para obter uma imagem específica
-router.get("/:id/image", PictureController.getImage);
+router.get("https://api-upload-img.onrender.com/pictures/:id/image", PictureController.getImage);
+
+// https://api-upload-img.onrender.com/pictures/:id/image
 
 // Rota para deletar uma imagem específica
 router.delete("/:id", PictureController.delete);
