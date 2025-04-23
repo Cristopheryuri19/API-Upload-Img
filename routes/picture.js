@@ -11,7 +11,7 @@ const upload = require("../config/multer");
 const PictureController = require("../controllers/PictureController");
 
 // Definindo a rota POST para criar, e fazer upload da imagem
-router.post("/", upload.single("file"), PictureController.create);
+router.post("https://api-upload-img.onrender.com/pictures", upload.single("file"), PictureController.create);
 
 // Definindo a rota GET para buscar todas as imagens do DB
 router.get("/", PictureController.findAll);
@@ -22,7 +22,7 @@ router.get("https://api-upload-img.onrender.com/pictures/:id/image", PictureCont
 // https://api-upload-img.onrender.com/pictures/:id/image
 
 // Rota para deletar uma imagem específica
-router.delete("/:id", PictureController.delete);
+router.delete("https://api-upload-img.onrender.com/pictures/:id", PictureController.delete);
 
 // Exportando o arquivo para utilizar no app.js
 module.exports = router;
