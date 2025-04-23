@@ -12,7 +12,7 @@ const elements = {
   
   // Configuração da aplicação
   const config = {
-    apiUrl: "https://api-upload-img.onrender.com/pictures ", // Endpoint da API
+    apiUrl: "https://api-upload-img.onrender.com/pictures", // Endpoint da API
     /* Colocar img Base 64*/
   };
   

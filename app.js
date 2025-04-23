@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 // Define que todas as rotas são "localhost:3000/pictures"
-app.use("https://api-upload-img.onrender.com/pictures", pictureRouter);
+app.use("/pictures", pictureRouter);
 
 // Inicia o servidor, e exibe uma mensagem ao usuario
 app.listen(port, () => {
